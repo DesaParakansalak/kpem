@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kependudukan</title>
+
+<link rel="icon" href="logo.png">
+
+<!-- FONT + ICON -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: url('img.jpg') center/cover no-repeat fixed;
+  color: white;
+}
+
+/* OVERLAY */
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* LOGO */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo img {
+  width: 55px;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 30px;
+}
+
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+
+  background: linear-gradient(to right, #fff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* TITLE */
+.title {
+  margin: 30px 0 15px;
+  text-align: center;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* GROUP */
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+}
+
+/* BUTTON MODERN */
+.btn {
+  width: 130px;
+  height: 100px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+
+  transition: 0.3s;
+}
+
+/* ICON */
+.btn i {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+/* HOVER */
+.btn:hover {
+  background: linear-gradient(135deg, #ffd700, orange);
+  color: black;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255,165,0,0.5);
+}
+
+/* HOME BUTTON */
+.bottom-nav {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 24px;
+  border-radius: 30px;
+
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background: orange;
+  color: black;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.footer img {
+  width: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .btn {
+    width: 100px;
+    height: 85px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGO -->
+<div class="logo">
+  <img src="11.png">
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>KEPENDUDUKAN</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="title">LAPORAN BULANAN</div>
+  <div class="group">
+    <a class="btn" href="https://drive.google.com/drive/folders/1rc0Y8s5jJlNDP1qtLCxXRwvVxXHilbdG" target="_blank">
+      <i class="fa-solid fa-folder-open"></i>
+      <span>LAPORAN</span>
+    </a>
+  </div>
+
+  <div class="title">PROFIL DESA</div>
+  <div class="group">
+    <a class="btn" href="https://prodeskel.binapemdes.kemendagri.go.id/" target="_blank">
+      <i class="fa-solid fa-building"></i>
+      <span>PRODESKEL</span>
+    </a>
+  </div>
+
+  <div class="title">EVALUASI DESA</div>
+  <div class="group">
+    <a class="btn" href="https://epdeskel.binapemdes.kemendagri.go.id/menu/" target="_blank">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>EPDESKEL</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- HOME -->
+<div class="bottom-nav">
+  <a href="index.html" class="home-btn">
+    <i class="fa-solid fa-house"></i>
+    <span>Kembali ke Home</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <img src="logo.png"><br>
+  Created By<br>
+  <b>URANG SUKABUMI ASLI</b><br>
+  © 2026
+</div>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urang Sukabumi Asli</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="icon" href="logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- JAM & TANGGAL -->
+<div class="top-time">
+    ⚙️ <span id="tanggal"></span>
+    🌙 <span id="jam"></span>
+</div>
+
+<!-- LOGO -->
+<div class="logo">
+  <img src="11.png" alt="Logo">
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>URANG SUKABUMI ASLI</h1>
+
+  <div class="menu">
+  <a href="insentif.html"><i class="fa-solid fa-money-bill-wave"></i><span>INSENTIF</span></a>
+
+  <a href="https://docs.google.com/document/d/1Cs6kd51VkGwaT1vMMQ4WD4q3s29yXy4q/edit"
+   target="_blank" 
+   rel="noopener noreferrer">
+  <i class="fa-solid fa-map"></i>
+  <span>PETA DESA</span>
+</a>
+
+  <a href="https://drive.google.com/drive/folders/1rTPwTFTshzK50mSE8tQiDt-MNczpa85E"target="blank"><i class="fa-solid fa-file-lines"></i><span>LPJ</span></a>
+
+  <a href="APBB.html"><i class="fa-solid fa-receipt"></i><span>PBB</span></a>
+
+  <a href="BAST.html"><i class="fa-solid fa-file-signature"></i><span>BAST</span></a>
+
+  <a href="kependudukan.html"><i class="fa-solid fa-users"></i><span>KEPENDUDUKAN</span></a>
+
+  <a href="https://drive.google.com/drive/folders/1wnWzpQu77FwXGFtLPZIaOwSW99o56HCf"target="blank"><i class="fa-solid fa-handshake"></i><span>PELAYANAN</span></a>
+
+  <a href="BUKTI.html"><i class="fa-solid fa-folder-open"></i><span>BUKTI</span></a>
+</div>
+
+  <div class="divider"></div>
+
+  <div class="info">
+    <h3>Selamat Datang</h3>
+    <p>Website layanan dan informasi Urang Sukabumi Asli.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <img src="logo.png"><br>
+  Created By<br>
+  <b>URANG SUKABUMI ASLI</b><br>
+  Copyright © 2026
+</div>
+
+<!-- SCRIPT JAM -->
+<script>
+function updateDateTime() {
+    const now = new Date();
+
+    const hari = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    const bulan = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+    const tgl = hari[now.getDay()] + ", " +
+                now.getDate() + " " +
+                bulan[now.getMonth()] + " " +
+                now.getFullYear();
+
+    const jam = String(now.getHours()).padStart(2, '0');
+    const menit = String(now.getMinutes()).padStart(2, '0');
+    const detik = String(now.getSeconds()).padStart(2, '0');
+
+    document.getElementById("tanggal").innerText = tgl;
+    document.getElementById("jam").innerText = `${jam} : ${menit} : ${detik} WIB`;
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+</script>
+
+</body>
+</html>

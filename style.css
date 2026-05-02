@@ -1,0 +1,201 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+/* ================= BACKGROUND ================= */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('img.jpg') center/cover no-repeat;
+  z-index: -2;
+  transform: scale(1.05);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(0,0,0,0.7),
+    rgba(20,40,80,0.6),
+    rgba(0,0,0,0.8)
+  );
+  z-index: -1;
+}
+
+/* ================= JAM ================= */
+.top-time {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ================= LOGO ================= */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo img {
+  width: 60px;
+  transition: 0.3s;
+}
+
+.logo img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+
+/* TITLE */
+.hero h1 {
+  font-size: 38px;
+  margin-bottom: 30px;
+  font-weight: 600;
+
+  background: linear-gradient(to right, #fff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ================= SECTION ================= */
+.section {
+  margin-bottom: 30px;
+}
+
+.section h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* ================= MENU ================= */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* BUTTON */
+.menu a {
+  width: 90px;
+  height: 80px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 18px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  transition: 0.3s;
+}
+
+/* ICON */
+.menu i {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* HOVER */
+.menu a:hover {
+  background: linear-gradient(135deg, #ffd700, orange);
+  color: black;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255,165,0,0.5);
+}
+
+/* ================= DIVIDER ================= */
+.divider {
+  width: 60%;
+  height: 1px;
+  margin: 40px auto;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  opacity: 0.3;
+}
+
+/* ================= BOTTOM HOME ================= */
+.bottom-nav {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 24px;
+  border-radius: 30px;
+
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  background: orange;
+  color: black;
+  transform: translateY(-3px);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.footer img {
+  width: 40px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .menu a {
+    width: 80px;
+    height: 70px;
+  }
+}
