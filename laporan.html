@@ -1,55 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input Penduduk</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #222;
+  color: white;
+}
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+}
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+}
+button {
+  padding: 10px;
+  width: 100%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>TES FORM</h2>
+
+<form id="formPenduduk">
+
+<input name="nama" placeholder="Nama" required>
+
+<select name="jenis_kelamin" required>
+  <option value="">Pilih</option>
+  <option value="L">L</option>
+  <option value="P">P</option>
+</select>
+
+<button type="submit">Simpan</button>
+
+</form>
+
+</div>
+
 <script>
-function kirimData() {
+document.getElementById("formPenduduk").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-  const btn = document.getElementById("btn");
-
-  // 🔥 pakai URLSearchParams (bukan JSON lagi)
-  const data = new URLSearchParams();
-  data.append("nama", document.getElementById("nama").value);
-  data.append("jenis_kelamin", document.getElementById("jk").value);
-  data.append("tempat_lahir", document.getElementById("tempat_lahir").value);
-  data.append("tgl_lahir", document.getElementById("tgl_lahir").value);
-  data.append("kewarganegaraan", document.getElementById("kewarganegaraan").value);
-  data.append("jenis", document.getElementById("jenis").value);
-  data.append("dusun", document.getElementById("dusun").value);
-  data.append("datang_dari", document.getElementById("datang_dari").value);
-  data.append("tgl_datang", document.getElementById("tgl_datang").value);
-  data.append("pindah_ke", document.getElementById("pindah_ke").value);
-  data.append("tgl_pindah", document.getElementById("tgl_pindah").value);
-  data.append("meninggal_di", document.getElementById("meninggal_di").value);
-  data.append("tgl_meninggal", document.getElementById("tgl_meninggal").value);
-  data.append("status_mdk", document.getElementById("status_mdk").value);
-  data.append("alamat", document.getElementById("alamat").value);
-  data.append("ayah", document.getElementById("ayah").value);
-  data.append("ibu", document.getElementById("ibu").value);
-  data.append("status", document.getElementById("status").value);
-
-  // VALIDASI
-  if (!data.get("nama") || !data.get("jenis_kelamin")) {
-    alert("❗ Nama dan Jenis Kelamin wajib diisi");
-    return;
-  }
-
-  btn.disabled = true;
-  btn.innerText = "Menyimpan...";
+  const formData = new FormData(this);
 
   fetch("https://script.google.com/macros/s/AKfycbwkFF1bc9csPFdhP69oHMXbafBLOJri_PJxZh4wcHbCyByGxS99UOR6ZQR5BTqzzSiW5g/exec", {
     method: "POST",
-    body: data
+    body: formData
   })
   .then(() => {
-    alert("✅ Data berhasil masuk");
-
-    // reset form
-    document.querySelectorAll("input, select").forEach(el => el.value = "");
+    alert("Sukses");
+    this.reset();
   })
   .catch(() => {
-    alert("❌ Gagal koneksi");
-  })
-  .finally(() => {
-    btn.disabled = false;
-    btn.innerText = "Simpan";
+    alert("Gagal");
   });
-
-}
+});
 </script>
+
+</body>
+</html>
