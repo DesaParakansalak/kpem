@@ -1,118 +1,11 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Input Penduduk</title>
-
-<style>
-body {
-  font-family: Arial;
-  background: #1e1e1e;
-  color: white;
-}
-
-.container {
-  max-width: 600px;
-  margin: 40px auto;
-  background: rgba(0,0,0,0.7);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin: 6px 0;
-  border-radius: 6px;
-  border: none;
-}
-
-button {
-  width: 100%;
-  padding: 12px;
-  background: orange;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:disabled {
-  background: gray;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-<h2>Input Data Penduduk</h2>
-
-<form id="formPenduduk">
-
-<input name="nama" placeholder="Nama" required>
-
-<select name="jenis_kelamin" required>
-  <option value="">Jenis Kelamin</option>
-  <option value="L">Laki-laki</option>
-  <option value="P">Perempuan</option>
-</select>
-
-<input name="tempat_lahir" placeholder="Tempat Lahir">
-<input type="date" name="tgl_lahir">
-
-<input name="kewarganegaraan" placeholder="Kewarganegaraan">
-
-<select name="jenis">
-  <option value="">Status Peristiwa</option>
-  <option value="DATANG">DATANG</option>
-  <option value="PINDAH">PINDAH</option>
-  <option value="MATI">MATI</option>
-  <option value="LAHIR">LAHIR</option>
-</select>
-
-<input name="dusun" placeholder="Dusun">
-<input name="datang_dari" placeholder="Datang dari">
-<input type="date" name="tgl_datang">
-
-<input name="pindah_ke" placeholder="Pindah ke">
-<input type="date" name="tgl_pindah">
-
-<input name="meninggal_di" placeholder="Meninggal di">
-<input type="date" name="tgl_meninggal">
-
-<select name="status_mdk">
-  <option value="">Status MDK</option>
-  <option value="MATI">MATI</option>
-  <option value="LAHIR">LAHIR</option>
-</select>
-
-<input name="alamat" placeholder="Alamat">
-<input name="ayah" placeholder="Nama Ayah">
-<input name="ibu" placeholder="Nama Ibu">
-
-<select name="status">
-  <option value="">Status</option>
-  <option value="kawin">Kawin</option>
-  <option value="belum kawin">Belum Kawin</option>
-  <option value="cerai hidup">Cerai Hidup</option>
-  <option value="cerai mati">Cerai Mati</option>
-</select>
-
-<button type="submit" id="btn">Simpan</button>
-
-</form>
-</div>
-
 <script>
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("formPenduduk");
   const btn = document.getElementById("btn");
 
   if (!form) {
-    alert("Form tidak ditemukan!");
+    alert("❌ Form tidak ditemukan!");
     return;
   }
 
@@ -126,10 +19,11 @@ window.onload = function () {
 
     fetch("https://script.google.com/macros/s/AKfycbwkFF1bc9csPFdhP69oHMXbafBLOJri_PJxZh4wcHbCyByGxS99UOR6ZQR5BTqzzSiW5g/exec", {
       method: "POST",
-      body: formData
+      body: formData,
+      mode: "no-cors" // 🔥 ini kunci
     })
     .then(() => {
-      alert("✅ Data berhasil masuk");
+      alert("✅ Data berhasil dikirim");
       form.reset();
     })
     .catch(err => {
@@ -143,8 +37,5 @@ window.onload = function () {
 
   });
 
-};
+});
 </script>
-
-</body>
-</html>
