@@ -8,22 +8,38 @@
 <style>
 body {
   font-family: Arial;
-  background: #222;
+  background: #1e1e1e;
   color: white;
 }
 
 .container {
-  max-width: 500px;
-  margin: 50px auto;
+  max-width: 600px;
+  margin: 40px auto;
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 10px;
 }
+
 input, select {
   width: 100%;
   padding: 10px;
-  margin: 5px 0;
+  margin: 6px 0;
+  border-radius: 6px;
+  border: none;
 }
+
 button {
-  padding: 10px;
   width: 100%;
+  padding: 12px;
+  background: orange;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: gray;
 }
 </style>
 </head>
@@ -31,42 +47,103 @@ button {
 <body>
 
 <div class="container">
-<h2>TES FORM</h2>
+<h2>Input Data Penduduk</h2>
 
 <form id="formPenduduk">
 
 <input name="nama" placeholder="Nama" required>
 
 <select name="jenis_kelamin" required>
-  <option value="">Pilih</option>
-  <option value="L">L</option>
-  <option value="P">P</option>
+  <option value="">Jenis Kelamin</option>
+  <option value="L">Laki-laki</option>
+  <option value="P">Perempuan</option>
 </select>
 
-<button type="submit">Simpan</button>
+<input name="tempat_lahir" placeholder="Tempat Lahir">
+<input type="date" name="tgl_lahir">
+
+<input name="kewarganegaraan" placeholder="Kewarganegaraan">
+
+<select name="jenis">
+  <option value="">Status Peristiwa</option>
+  <option value="DATANG">DATANG</option>
+  <option value="PINDAH">PINDAH</option>
+  <option value="MATI">MATI</option>
+  <option value="LAHIR">LAHIR</option>
+</select>
+
+<input name="dusun" placeholder="Dusun">
+<input name="datang_dari" placeholder="Datang dari">
+<input type="date" name="tgl_datang">
+
+<input name="pindah_ke" placeholder="Pindah ke">
+<input type="date" name="tgl_pindah">
+
+<input name="meninggal_di" placeholder="Meninggal di">
+<input type="date" name="tgl_meninggal">
+
+<select name="status_mdk">
+  <option value="">Status MDK</option>
+  <option value="MATI">MATI</option>
+  <option value="LAHIR">LAHIR</option>
+</select>
+
+<input name="alamat" placeholder="Alamat">
+<input name="ayah" placeholder="Nama Ayah">
+<input name="ibu" placeholder="Nama Ibu">
+
+<select name="status">
+  <option value="">Status</option>
+  <option value="kawin">Kawin</option>
+  <option value="belum kawin">Belum Kawin</option>
+  <option value="cerai hidup">Cerai Hidup</option>
+  <option value="cerai mati">Cerai Mati</option>
+</select>
+
+<button type="submit" id="btn">Simpan</button>
 
 </form>
-
 </div>
 
 <script>
-document.getElementById("formPenduduk").addEventListener("submit", function(e) {
-  e.preventDefault();
+window.onload = function () {
 
-  const formData = new FormData(this);
+  const form = document.getElementById("formPenduduk");
+  const btn = document.getElementById("btn");
 
-  fetch("https://script.google.com/macros/s/AKfycbwkFF1bc9csPFdhP69oHMXbafBLOJri_PJxZh4wcHbCyByGxS99UOR6ZQR5BTqzzSiW5g/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(() => {
-    alert("Sukses");
-    this.reset();
-  })
-  .catch(() => {
-    alert("Gagal");
+  if (!form) {
+    alert("Form tidak ditemukan!");
+    return;
+  }
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    btn.disabled = true;
+    btn.innerText = "Menyimpan...";
+
+    fetch("https://script.google.com/macros/s/AKfycbwkFF1bc9csPFdhP69oHMXbafBLOJri_PJxZh4wcHbCyByGxS99UOR6ZQR5BTqzzSiW5g/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(() => {
+      alert("✅ Data berhasil masuk");
+      form.reset();
+    })
+    .catch(err => {
+      alert("❌ Gagal koneksi");
+      console.error(err);
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerText = "Simpan";
+    });
+
   });
-});
+
+};
 </script>
 
 </body>
